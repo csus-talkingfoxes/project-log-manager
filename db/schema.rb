@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120207074823) do
+ActiveRecord::Schema.define(:version => 20120207212358) do
+
+  create_table "agenda_items", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "item"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "agenda_id"
+  end
+
+  add_index "agenda_items", ["agenda_id"], :name => "index_agenda_items_on_agenda_id"
+  add_index "agenda_items", ["user_id"], :name => "index_agenda_items_on_user_id"
+
+  create_table "agendas", :force => true do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "agendas", ["user_id"], :name => "index_agendas_on_user_id"
 
   create_table "log_units", :force => true do |t|
     t.datetime "start"

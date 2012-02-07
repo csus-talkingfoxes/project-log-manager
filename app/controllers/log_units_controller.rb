@@ -41,7 +41,7 @@ class LogUnitsController < ApplicationController
   # POST /log_units.json
   def create
     @log_unit = LogUnit.new(params[:log_unit])
-    @log_unit.user = @current_user
+    @log_unit.user = current_user
 
     respond_to do |format|
       if @log_unit.save

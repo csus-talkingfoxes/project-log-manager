@@ -1,4 +1,8 @@
 TimeLog::Application.routes.draw do
+  resources :agendas
+
+  resources :agenda_items
+
   resources :log_units
 
   get "home/index"

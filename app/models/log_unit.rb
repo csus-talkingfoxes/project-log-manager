@@ -8,4 +8,7 @@ class LogUnit < ActiveRecord::Base
   }
   validates :start, :end, :description, :presence => true
 
+  def to_s
+    "{user} {start} -> {end} :: {description}"
+  end
 end
