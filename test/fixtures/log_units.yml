@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start: 2012-02-04 20:48:23
+  end: 2012-02-04 23:48:23
+  user: 
+  description: one two three four five six seven eight nine ten
+
+two:
+  start: 2012-02-05 23:48:23
+  end: 2012-02-05 23:48:23
+  user: 
+  description: one two three four five six seven eight nine ten

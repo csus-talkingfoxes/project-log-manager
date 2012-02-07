@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body id="home">
+    <div id="nav" class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Talking Foxes</a>
+          <div class="nav-collapse">
+          <% if current_user %>
+            <ul class="nav">
+              <li><%= link_to "Log Entry List", log_unit_path %></li>
+              <li><%= link_to "New Log Entry", new_log_unit_path %></li>
+              <li><%= link_to "Logout", :logout %></li>
+            </ul>
+          <% else %>
+            <ul class="nav">
+              <li><%= link_to "Register", signup_path %></li>
+              <li><%= link_to "Log in", :login  %></li>
+            </ul>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" %>
+      <% end %>
+      <%= yield %>
+      <hr>
+      <div id="footer" class="row">
+        <div class="span6">
+          <p>Senior Project, CSUS, 2012</p>
+          <p>Group members: Josh Eilers, Chris Libratore, Mike Vollmer, Gabe Wonders</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start:</b>
+  <%= @log_unit.start %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @log_unit.end %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @log_unit.user %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @log_unit.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_log_unit_path(@log_unit) %> |
+<%= link_to 'Back', log_units_path %>

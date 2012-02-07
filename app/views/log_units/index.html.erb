@@ -1,0 +1,32 @@
+<h1>Listing Log Entries</h1>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>User</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @log_units.each do |log_unit| %>
+    <tr>
+      <td><%= log_unit.id %></td>
+      <td><%= log_unit.start.strftime("%Y-%m-%d %H:%M") %></td>
+      <td><%= log_unit.end.strftime("%Y-%m-%d %H:%M")%></td>
+      <td><%= link_to log_unit.user.username, log_unit.user %></td>
+      <td><%= log_unit.description %></td>
+      <td><%= link_to 'Show', log_unit %></td>
+      <td><%= link_to 'Edit', edit_log_unit_path(log_unit) %></td>
+      <td><%= link_to 'Destroy', log_unit, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Log unit', new_log_unit_path, :class => "btn" %>

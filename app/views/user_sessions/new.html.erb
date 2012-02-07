@@ -1,0 +1,26 @@
+<% content_for :title do %>Log in<% end %>
+<h1>Log in</h1>  
+<hr>
+<div class="row">
+  <div class="span3">
+  <%= form_tag user_sessions_path, :method => :post do %>  
+    <div class="field">  
+      <%= label_tag :username %>  
+      <%= text_field_tag :username %>  
+    </div>  
+    <div class="field">  
+      <%= label_tag :password %>  
+      <%= password_field_tag :password %>  
+    </div>  
+    <div class="field">  
+      <%= check_box_tag :remember_me, 1, params[:remember_me] %>  
+      <%= label_tag :remember_me %>  
+    </div>  
+    <div class="actions"><%= submit_tag "Log in" %></div>  
+  <% end %> 
+</div>
+<div class="span4">
+  <p>Provide your username and password here.</p>
+  <p>I don't even know why I'm telling you this. You know what a log in form is. You've used these a million times. I just thought this page looked boring with all this empty space so I wrote something here.</p>
+</div>
+</div>
