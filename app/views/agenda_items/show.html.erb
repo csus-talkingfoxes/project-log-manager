@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @agenda_item.user %>
+</p>
+
+<p>
+  <b>Item:</b>
+  <%= @agenda_item.item %>
+</p>
+
+
+<%= link_to 'Edit', edit_agenda_item_path(@agenda_item) %> |
+<%= link_to 'Back', agenda_items_path %>

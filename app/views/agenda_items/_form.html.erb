@@ -1,0 +1,34 @@
+<%= form_for(@agenda_item, :html => { :class => "form-horizontal" }) do |f| %>
+  <fieldset>
+  <% if @agenda_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agenda_item.errors.count, "error") %> prohibited this agenda_item from being saved:</h2>
+
+      <ul>
+      <% @agenda_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field control-group">
+    <%= f.label :agenda, :class => "control-label" %>
+    <div class="controls">
+      <%= f.select :agenda_id, Agenda.all.collect {|p| [ p.to_s, p.id ] } %>
+    </div>
+  </div>
+    
+  <div class="field control-group">
+    <%= f.label :item, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :item %>
+    </div>
+  </div>
+
+  <div class="actions form-actions">
+    <%= f.submit :class => "btn btn-primary" %>
+    <%= f.button "Reset", :type => "reset", :class => "btn" %>
+  </div>
+  </fieldset>
+<% end %>

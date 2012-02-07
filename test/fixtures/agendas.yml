@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start: 2012-02-07 13:20:49
+  end: 2012-02-07 13:20:49
+  user: 
+
+two:
+  start: 2012-02-07 13:20:49
+  end: 2012-02-07 13:20:49
+  user: 
