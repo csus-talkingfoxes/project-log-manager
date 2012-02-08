@@ -41,6 +41,7 @@ class AgendasController < ApplicationController
   # POST /agendas.json
   def create
     @agenda = Agenda.new(params[:agenda])
+    @agenda.user = current_user
 
     respond_to do |format|
       if @agenda.save

@@ -1,25 +1,26 @@
 <h1>Listing agendas</h1>
-
-<table>
+<hr>
+<table class="table">
+  <thead>
   <tr>
     <th>Start</th>
     <th>End</th>
     <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
+</thead>
+<tbody>
 <% @agendas.each do |agenda| %>
   <tr>
-    <td><%= agenda.start %></td>
-    <td><%= agenda.end %></td>
+    <td><%= agenda.start.strftime("%Y-%m-%d %H:%M")  %></td>
+    <td><%= agenda.end.strftime("%Y-%m-%d %H:%M")  %></td>
     <td><%= agenda.user %></td>
     <td><%= link_to 'Show', agenda %></td>
     <td><%= link_to 'Edit', edit_agenda_path(agenda) %></td>
     <td><%= link_to 'Destroy', agenda, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />

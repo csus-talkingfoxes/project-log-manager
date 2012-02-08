@@ -1,19 +1,43 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="span4">
+    <h3>Time:</h3>
+    <p>
+      <strong>Start:</strong>
+      <%= @agenda.start.strftime("%Y-%m-%d %H:%M") %>
+    </p>
 
-<p>
-  <b>Start:</b>
-  <%= @agenda.start %>
-</p>
+    <p>
+      <strong>End:</strong>
+      <%= @agenda.end.strftime("%Y-%m-%d %H:%M") %>
+    </p>
 
-<p>
-  <b>End:</b>
-  <%= @agenda.end %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @agenda.user %>
-</p>
+    <p>
+      Agenda posted by <%= @agenda.user %>
+    </p>
+  </div>
+  <div class="span8">
+    <% if @agenda.agenda_items  %>
+      <h3>Agenda Items:</h3>
+      <table class="table table-striped table-bordered table-condensed">
+        <thead>
+          <tr>
+            <td colspan="2"><strong>Agenda Item</strong></td>
+            <td><strong>Author</strong></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @agenda.agenda_items.each do |item| %>
+            <tr>
+              <td colspan="2"><%= item.item %></td>
+              <td><%= item.user %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
 
 
 <%= link_to 'Edit', edit_agenda_path(@agenda) %> |
