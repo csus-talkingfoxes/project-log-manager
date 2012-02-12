@@ -6,7 +6,7 @@ class AgendasController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @agendas }
+      format.json { render :json => @agendas }
     end
   end
 
@@ -14,10 +14,13 @@ class AgendasController < ApplicationController
   # GET /agendas/1.json
   def show
     @agenda = Agenda.find(params[:id])
+    @checkin = AgendaCheckin.new
+    @checkin.user = current_user
+    @checkin.agenda = @agenda
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @agenda }
+      format.json { render :json => @agenda }
     end
   end
 
@@ -28,7 +31,7 @@ class AgendasController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @agenda }
+      format.json { render :json => @agenda }
     end
   end
 
@@ -45,11 +48,11 @@ class AgendasController < ApplicationController
 
     respond_to do |format|
       if @agenda.save
-        format.html { redirect_to @agenda, notice: 'Agenda was successfully created.' }
-        format.json { render json: @agenda, status: :created, location: @agenda }
+        format.html { redirect_to @agenda, :notice => 'Agenda was successfully created.' }
+        format.json { render :json => @agenda, :status => :created, :location => @agenda }
       else
-        format.html { render action: "new" }
-        format.json { render json: @agenda.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @agenda.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -61,11 +64,11 @@ class AgendasController < ApplicationController
 
     respond_to do |format|
       if @agenda.update_attributes(params[:agenda])
-        format.html { redirect_to @agenda, notice: 'Agenda was successfully updated.' }
+        format.html { redirect_to @agenda, :notice => 'Agenda was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @agenda.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @agenda.errors, :status => :unprocessable_entity }
       end
     end
   end

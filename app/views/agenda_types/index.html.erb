@@ -1,0 +1,23 @@
+<h1>Listing agenda_types</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @agenda_types.each do |agenda_type| %>
+  <tr>
+    <td><%= agenda_type.typestring %></td>
+    <td><%= link_to 'Show', agenda_type %></td>
+    <td><%= link_to 'Edit', edit_agenda_type_path(agenda_type) %></td>
+    <td><%= link_to 'Destroy', agenda_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Agenda type', new_agenda_type_path %>

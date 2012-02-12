@@ -24,7 +24,12 @@
       <%= f.text_field :end, :class => "datepicker" %>
     </div>
   </div>
-
+  <div class="field control-group">
+    <%= f.label :agenda_type, :class => "control-label" %>
+    <div class="controls">
+      <%= f.select :agenda_type_id, AgendaType.all.collect {|p| [ p.to_s, p.id ] } %>
+    </div>
+  </div>
   <div class="actions form-actions">
     <%= f.submit :class => "btn btn-primary" %>
     <%= f.button "Reset", :type => "reset", :class => "btn" %>

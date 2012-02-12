@@ -2,16 +2,21 @@
 <div class="row">
   <div class="span4">
     <h3>Time:</h3>
-    <p>
-      <strong>Start:</strong>
+    <p><strong>Start:</strong>
       <%= @agenda.start.strftime("%Y-%m-%d %H:%M") %>
     </p>
 
-    <p>
-      <strong>End:</strong>
+    <p><strong>End:</strong>
       <%= @agenda.end.strftime("%Y-%m-%d %H:%M") %>
     </p>
-
+    <p><strong>Type:</strong>
+      <%= @agenda.type %>
+    </p>
+    <p><%= button_to "Check in", {
+      :controller => "agenda_checkins",
+      :action => "create",
+      :agenda_checkin => { :agenda_id => @agenda.id, :user_id => current_user.id } },
+      :class => "btn" %></p>
     <p>
       Agenda posted by <%= @agenda.user %>
     </p>

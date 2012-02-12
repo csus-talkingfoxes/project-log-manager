@@ -15,7 +15,7 @@
     <td><%= link_to agenda_item.item %></td>
     <td><%= link_to 'Show', agenda_item %></td>
     <td><%= link_to 'Edit', edit_agenda_item_path(agenda_item) %></td>
-    <td><%= link_to 'Destroy', agenda_item, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', agenda_item, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </tbody>

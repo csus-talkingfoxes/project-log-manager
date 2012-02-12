@@ -1,0 +1,25 @@
+<%= form_for(@agenda_checkin) do |f| %>
+  <% if @agenda_checkin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agenda_checkin.errors.count, "error") %> prohibited this agenda_checkin from being saved:</h2>
+
+      <ul>
+      <% @agenda_checkin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :agenda %><br />
+    <%= f.text_field :agenda %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

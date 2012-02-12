@@ -1,0 +1,26 @@
+<h1>Listing agenda_checkins</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>User</th>
+    <th>Agenda</th>
+  </tr>
+</thead>
+<tbody>
+
+<% @agenda_checkins.each do |agenda_checkin| %>
+  <tr>
+    <td><%= agenda_checkin.user %></td>
+    <td><%= agenda_checkin.agenda %></td>
+    <td><%= link_to 'Show', agenda_checkin %></td>
+    <td><%= link_to 'Edit', edit_agenda_checkin_path(agenda_checkin) %></td>
+    <td><%= link_to 'Destroy', agenda_checkin, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Agenda checkin', new_agenda_checkin_path %>

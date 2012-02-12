@@ -1,4 +1,8 @@
 TimeLog::Application.routes.draw do
+  resources :agenda_checkins
+
+  resources :agenda_types
+
   resources :agendas
 
   resources :agenda_items

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @agenda_checkin.user %>
+</p>
+
+<p>
+  <b>Agenda:</b>
+  <%= @agenda_checkin.agenda %>
+</p>
+
+
+<%= link_to 'Edit', edit_agenda_checkin_path(@agenda_checkin) %> |
+<%= link_to 'Back', agenda_checkins_path %>
